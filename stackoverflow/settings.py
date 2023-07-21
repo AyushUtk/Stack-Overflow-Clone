@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "stackusers",
     "crispy_forms",
     "crispy_bootstrap5",
+    "ckeditor"
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -136,5 +137,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = 'stackbase:home'
+
+LOGIN_URL = '/login/'
 
 

@@ -97,7 +97,7 @@
                     <hr>
                     <h6 id="fh6" style="font-size: 10px; font-style: italic; color: rgb(155, 155, 155); text-align: right;">Asked By: <a href="{% url 'profile' %}">{{ object.user|title }}</a>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; On: {{ object.date_created|date:"j F, Y" }}</h6>
                     <br>
-                        <form action="" method="POST">
+                        <form action="{% url 'stackbase:like_post' object.pk %}" method="POST">
                             {% csrf_token %}
                             {% if user.is_authenticated %}
                                 {% if liked %}
@@ -159,9 +159,9 @@
                         {% endif %}
                     </form> -->
                     
-                    <a class="btn btn-outline-primary" id="fa" href="" style="text-decoration: none;">Answer Question</a>
+                    <a class="btn btn-outline-primary" id="fa" href="{% url 'stackbase:question-comment' question.id %}" style="text-decoration: none;">Answer Question</a>
                     <a style="text-decoration: none; " class="btn btn-outline-success" href="{% url 'stackbase:question-update' question.id %}">&#x270E;</a>
-                    <a style="text-decoration: none; " class="btn btn-outline-danger" href="">&#x2716;</a>
+                    <a style="text-decoration: none; " class="btn btn-outline-danger" href="{% url 'stackbase:question-delete' question.id %}">&#x2716;</a>
                     <a style="text-decoration: none; " class="btn btn-outline-secondary" href="{% url 'stackbase:question-lists' %}">&#x21a9;</a>
                 </div> <br><br>
                     <!-- Answer Section -->
